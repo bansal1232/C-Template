@@ -1,4 +1,7 @@
- 
+#include<bits/stdc++.h>
+using namespace std;
+
+
 /* Print pair */
 template <typename T,typename S>
 ostream & operator << (ostream &os , const pair<T,S> &v) {
@@ -10,10 +13,10 @@ ostream & operator << (ostream &os , const pair<T,S> &v) {
 template <typename T>
 ostream & operator << (ostream &os , const vector<T> &v) {
     os << "[" ;
-    int n = v.size() ;
-    for(int i = 0 ; i < n ; ++i) {
+    int sz = v.size() ;
+    for(int i = 0 ; i < sz ; ++i) {
         os << v[i] ;
-        if(i!=n-1)os << "," ;
+        if(i!=sz-1)os << "," ;
     }
     os << "]\n" ;
     return os ;
@@ -37,4 +40,36 @@ ostream & operator << (ostream &os , const map<T,S> &v) {
         os << it.first << " : " << it.second << "\n" ;
     }
     return os ;
+}
+int power(int a , int b)
+{
+    int res = 1 ;
+    while(b)
+    {
+        if(b%2) {
+            res = (res * a) % mod ;
+        }
+        b/=2 ;
+        a = (a*a) % mod ;
+    }
+    return res ;
+}
+
+
+#define trace(...) __f(#__VA_ARGS__, __VA_ARGS__)
+template <typename Arg1>
+void __f(const char* name, Arg1&& arg1){
+        cerr << name << " : " << arg1 << std::endl;
+}
+template <typename Arg1, typename... Args>
+void __f(const char* names, Arg1&& arg1, Args&&... args){
+        const char* comma = strchr(names + 1, ',');cerr.write(names, comma - names) << " : " << arg1<<" | ";__f(comma+1, args...);
+}
+int main()
+{
+    
+    pair<int,int>pi(453,354);
+    set<int>st{345,234,12,231,11};
+    trace(st);
+return 0;
 }
